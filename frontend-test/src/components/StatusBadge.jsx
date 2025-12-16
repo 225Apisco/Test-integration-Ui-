@@ -1,35 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const StatusBadge = ({ status }) => {
-  const getStatusConfig = (status) => {
-    const configs = {
-      completed: {
-        label: 'Complété',
-        className: 'status-completed',
-        icon: '✓'
-      },
-      pending: {
-        label: 'En attente',
-        className: 'status-pending',
-        
-      },
-      failed: {
-        label: 'Échoué',
-        className: 'status-failed',
-        
-      }
-    };
-    return configs[status] || configs.pending;
-  };
+export default function StatusBadge({ status }) {
+  let colorClass = "secondary";
 
-  const config = getStatusConfig(status);
+  if (status === "validée") colorClass = "success";
+  else if (status === "en attente") colorClass = "warning";
+  else if (status === "annulée") colorClass = "danger";
 
-  return (
-    <div className={`status-badge ${config.className}`}>
-      <span className="status-icon">{config.icon}</span>
-      <span className="status-label">{config.label}</span>
-    </div>
-  );
-};
-
-export default StatusBadge;
+  return <span className={`badge bg-${colorClass}`}>{status}</span>;
+}

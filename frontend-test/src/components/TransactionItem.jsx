@@ -1,52 +1,23 @@
-import React from 'react';
-import StatusBadge from './StatusBadge';
-import ActionButtons from './ActionButtons';
+import React from "react";
+import StatusBadge from "./StatusBadge";
+import ActionButton from "./ActionButton";
 
-const TransactionItem = ({ transaction, onDelete, onStatusUpdate }) => {
-  const formatDate = (dateString) => {
-    const options = { Jour: 'numerique', mois: 'court', année: 'numerique' };
-    return new Date(dateString).toLocaleDateString('fr-FR', options);
-  };
-
-  const formatAmount = (amount) => {
-    const formatted = Math.abs(amount).toFixed(2);
-    return amount < 0 ? `-${formatted} FCFA` : `+${formatted} FCFA`;
-  };
-
+export default function TransactionItem({ transaction, onUpdateStatus }) {
   return (
-    <div className="transaction-item">
-      <div className="transaction-cell" data-label="Date">
-        <div className="transaction-date">
-          {formatDate(transaction.date)}
-        </div>
-      </div>
-      
-      <div className="transaction-cell" data-label="Description">
-        <div className="transaction-description">
-          <h3>{transaction.description}</h3>
-          <p>{transaction.category} • {transaction.beneficiary}</p>
-        </div>
-      </div>
-      
-      <div className="transaction-cell" data-label="Montant">
-        <div className={`transaction-amount ${transaction.amount < 0 ? 'amount-negative' : 'amount-positive'}`}>
-          {formatAmount(transaction.amount)}
-        </div>
-      </div>
-      
-      <div className="transaction-cell" data-label="Statut">
-        <StatusBadge status={transaction.status} />
-      </div>
-      
-      <div className="transaction-cell" data-label="Actions">
-        <ActionButtons 
-          transaction={transaction}
-          onDelete={onDelete}
-          onStatusUpdate={onStatusUpdate}
+    <tr>
+      <td>{transaction.name}</td>
+      <td>{transaction.amount} CFA</td>
+      <td><StatusBadge status={transaction.status} /></td>
+      <td>
+        <ActionButton
+          label="Valider"
+          onClick={() => onUpdateStatus(transaction.id, "validée")}
         />
-      </div>
-    </div>
+        <ActionButton
+          label="Annuler"
+          onClick={() => onUpdateStatus(transaction.id, "annulée")}
+        />
+      </td>
+    </tr>
   );
-};
-
-export default TransactionItem;
+}
