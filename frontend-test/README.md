@@ -1,16 +1,85 @@
-# React + Vite
+Transactions UI - React + Bootstrap 5
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Description
 
-Currently, two official plugins are available:
+Ce projet est un exemple d’interface web simple pour afficher une liste de transactions avec statuts et actions interactives.
+Il est conçu pour être responsive et facile à utiliser pour tout type d’utilisateur.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Fonctionnalités :
 
-## React Compiler
+Affichage d’une liste de transactions (nom, montant, statut)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Badges de statut colorés (validée, en attente, annulée)
 
-## Expanding the ESLint configuration
+Actions interactives : Valider / Annuler
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Interface responsive avec Bootstrap 5
+
+Simulation d’un chargement d’API
+
+# Technologies utilisées
+
+React 18, JavaScript , Bootstrap 5 , HTML & CSS
+
+# Installation
+
+# Cloner le projet 
+
+git clone :  https://github.com/225Apisco/Test-integration-Ui-
+
+cd transactions-ui
+
+# Installer les dépendances :
+
+npm install
+
+
+# Lancer le projet :
+
+npm run dev
+
+
+Ouvrir le navigateur sur l’URL indiquée (ex: http://localhost:5173)
+
+# Structure du projet
+src/
+├─ components/
+│  ├─ Header.jsx       # En-tête
+│  ├─ Footer.jsx       # Pied de page
+│  ├─ StatusBadge.jsx  # Badge de statut
+│  ├─ ActionButton.jsx # Bouton d’action
+│  └─ TransactionItem.jsx # Ligne de transaction
+├─ data/
+│  └─ transactions.js  # Mock des transactions
+├─ pages/
+│  └─ Home.jsx         # Page principale
+├─ App.jsx
+└─ main.jsx
+
+# Fonctionnement
+
+Les transactions sont récupérées depuis un mock (data/transactions.js).
+
+Lorsqu’un utilisateur clique sur Valider ou Annuler, le statut de la transaction change immédiatement.
+
+Le tableau est responsive et s’adapte à toutes les tailles d’écran.
+
+# Améliorations UX possibles
+
+Ajouter un filtre par statut pour faciliter la recherche de transactions.
+
+Ajouter un modal de confirmation avant de changer le statut d’une transaction.
+
+Ajouter une animation de notification après chaque action pour informer l’utilisateur.
+
+# Démo
+
+Version locale : après npm run dev
+
+ Version hébergée : 
+
+# Auteur
+
+BATIONO EPIPHANE – Développeur Frontend
+
+Projet réalisé pour un test technique React js 
